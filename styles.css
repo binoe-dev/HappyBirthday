@@ -98,3 +98,46 @@ button:hover {
         opacity: 0;
     }
 }
+
+
+#greetingMessage {
+    font-size: 64px; /* Kích thước chữ lớn hơn */
+    font-family: 'Dancing Script', cursive; /* Font chữ mềm mại, lãng mạn */
+    text-align: center; /* Canh giữa */
+    color: #ffffff; /* Màu chữ trắng */
+    text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; /* Hiệu ứng viền sáng màu Noel */
+    background: linear-gradient(to right, #ff0000, #ffffff, #00ff00); /* Hiệu ứng gradient Noel */
+    -webkit-background-clip: text; /* Chỉ áp dụng gradient vào phần chữ */
+    -webkit-text-fill-color: transparent; /* Ẩn màu nền của chữ */
+    animation: sparkle 2s infinite alternate; /* Hiệu ứng lấp lánh */
+}
+
+@keyframes sparkle {
+    0% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; }
+    50% { text-shadow: 4px 4px 10px #ff4500, -4px -4px 10px #00ff80; }
+    100% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; }
+}
+
+button {
+    font-size: 24px; /* Kích thước chữ lớn hơn */
+    font-family: 'Poppins', sans-serif; /* Font chữ hiện đại, dễ đọc */
+    color: #ffffff; /* Màu chữ trắng */
+    background: linear-gradient(45deg, #ff0000, #00ff00); /* Hiệu ứng nền gradient Noel */
+    border: none; /* Loại bỏ viền */
+    padding: 15px 30px; /* Tăng khoảng cách chữ */
+    border-radius: 12px; /* Bo góc nút */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+    transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
+}
+
+button:hover {
+    background: linear-gradient(45deg, #00ff00, #ff0000); /* Đổi hướng gradient khi hover */
+    transform: scale(1.1); /* Phóng to nút nhẹ khi hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Tăng bóng khi hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Thu nhỏ nút khi nhấn */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Giảm bóng khi nhấn */
+}

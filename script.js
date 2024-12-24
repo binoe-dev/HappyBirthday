@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
         clickCount++;
 
         if (clickCount === 1) {
-            message.textContent = "Chào bạn!";
+            message.textContent = "Người yêu ơiiiiiiiiii";
             message.classList.remove("hidden");
             message.classList.add("visible");
         } else if (clickCount === 2) {
-            message.textContent = "Tôi có món quà dành cho bạn";
+            message.textContent = "Anh có món quà dành cho emmmmm ...";
             message.classList.remove("hidden");
             message.classList.add("visible");
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             giftBox.style.opacity = "0";
     
             setTimeout(() => {
-                message.textContent = "Chúc bạn giáng sinh vui vẻ!";
+                message.textContent = "Chúc em giáng sinh vui vẻ 😘❤️";
                 giftBox.classList.add("hidden");
             }, 1000); // Thời gian nổ
         }, 1000); // Thời gian phình to
