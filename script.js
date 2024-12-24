@@ -67,12 +67,29 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 message.innerHTML = "Chúc em giáng sinh vui vẻ ^^ <br> Giáng sinh năm nay, hay nhiều năm nữa thì anh vẫn muốn chúng ta có nhau :3 <br> Anh yêu em nhiều lắm ❤❤";
                 giftBox.classList.add("hidden");
-
+                gifContainer.classList.remove("hidden");
+                gifContainer.classList.add("visible");
+                gifContainer.style.marginTop = "20px";
                 // Phát nhạc nền sau khi hộp quà được mở
                 backgroundMusic.play();
             }, 1000); // Thời gian nổ
         }, 1000); // Thời gian phình to
     });
+
+    // Thêm thẻ <div> chứa các GIF động nếu chưa có
+    let gifContainer = document.getElementById("gifContainer");
+    if (!gifContainer) {
+    gifContainer = document.createElement("div");
+    gifContainer.id = "gifContainer";
+    gifContainer.style.textAlign = "center";
+    gifContainer.innerHTML = `
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmNmM2p0dDF4Z2RxMXRiczNqajJkMjdvYXB5dzN6dGVzZzk5ZmFhcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qoZXOC3fcZsSLze5Ch/giphy.webp" alt="GIF 1" style="width: 150px; margin: 5px;">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWNjc2FheHRiMnN5bWxwY2plbzNoemF2NXEwczVqajM5ZTdnb3hlMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wwe1fooAYWlEOOziPC/giphy.webp" alt="GIF 2" style="width: 150px; margin: 5px;">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzNrZDIxMjhqZmlhcGFqMXkweTliN3Z3aTlka3IzbndjbTJtNDd0aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FxV8D3n3Ca7jjLwdQB/giphy.webp" alt="GIF 3" style="width: 150px; margin: 5px;">
+    `;
+    document.body.appendChild(gifContainer);
+}
+
 
     // Snow effect background
     const canvas = document.createElement("canvas");
