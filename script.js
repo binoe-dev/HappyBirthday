@@ -3,17 +3,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("greetingMessage");
     const giftBox = document.getElementById("giftBox");
 
+    // Thêm các đối tượng âm thanh
+    const clickSound = new Audio("click.mp3");
+    const boxSound = new Audio("box.mp3");
+    const backgroundMusic = new Audio("music.mp3");
+
+    // Đặt chế độ lặp lại cho nhạc nền
+    backgroundMusic.loop = true;
+
     let clickCount = 0; // Đếm số lần nhấn nút
 
     button.addEventListener("click", () => {
         clickCount++;
+        clickSound.play(); // Phát âm thanh khi bấm nút
 
         if (clickCount === 1) {
-            message.textContent = "Người yêu ơiiiiiiiiii";
+            message.textContent = "Người yêu ơiiiiiiiiiiiiiiiiiiiiiiii";
             message.classList.remove("hidden");
             message.classList.add("visible");
-        } else if (clickCount === 2) {
-            message.textContent = "Anh có món quà dành cho emmmmm ...";
+        }
+        if (clickCount === 2) {
+            message.textContent = "Bé Cua xinh đẹp dễ thương cute phô mai que số một vũ trụ của anh ơiiiiiiiiiiiiiiiiiiiii";
+            message.classList.remove("hidden");
+            message.classList.add("visible");
+        }
+        if (clickCount === 3) {
+            message.textContent = "Chuyện là .........";
+            message.classList.remove("hidden");
+            message.classList.add("visible");
+        }
+        if (clickCount === 4) {
+            message.textContent = "Anh có món quà này muốn gửi cho emmmmmmmmmm";
+            message.classList.remove("hidden");
+            message.classList.add("visible");
+        }
+         else if (clickCount === 5) {
+            message.textContent = "Em mở nó ra nhaaaaaa ...";
             message.classList.remove("hidden");
             message.classList.add("visible");
 
@@ -25,26 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     giftBox.addEventListener("click", () => {
+        boxSound.play(); // Phát âm thanh khi bấm vào giftBox
+
         // Tạm dừng animation bounce
         giftBox.style.animation = "none";
-    
+
         // Áp dụng hiệu ứng phình to
         giftBox.style.transform = "scale(1.1)";
         giftBox.style.opacity = "0.8";
-    
+
         setTimeout(() => {
             // Áp dụng hiệu ứng nổ
             giftBox.style.transform = "scale(3)";
             giftBox.style.opacity = "0";
-    
+
             setTimeout(() => {
-                message.textContent = "Chúc em giáng sinh vui vẻ 😘❤️";
+                message.innerHTML = "Chúc em giáng sinh vui vẻ ^^ <br> Giáng sinh năm nay, hay nhiều năm nữa thì anh vẫn muốn chúng ta có nhau :3 <br> Anh yêu em nhiều lắm ❤❤";
                 giftBox.classList.add("hidden");
+
+                // Phát nhạc nền sau khi hộp quà được mở
+                backgroundMusic.play();
             }, 1000); // Thời gian nổ
         }, 1000); // Thời gian phình to
     });
-    
-    
 
     // Snow effect background
     const canvas = document.createElement("canvas");
@@ -76,35 +104,29 @@ document.addEventListener("DOMContentLoaded", () => {
         speed: Math.random() * 2 + 2,
     }));
 
-    // Load ribbon (bell) image
     const ribbonImage = new Image();
-    ribbonImage.src = "bell.png"; // Replace with the actual path to your bell PNG
+    ribbonImage.src = "bell.png";
 
-    let angle = 0; // Initial angle for rotation
-    const maxAngle = 10; // Max angle for the shake effect
+    let angle = 0;
+    const maxAngle = 10;
 
     function drawSnow() {
         ctx.clearRect(0, 0, width, height);
 
-        // Draw the resized ribbon (bell) at the top of the screen with shake effect
         if (ribbonImage.complete) {
-            const ribbonWidth = ribbonImage.width * 0.2; // Shrink the width to 30%
-            const ribbonHeight = ribbonImage.height * 0.2; // Shrink the height to 30%
-            const ribbonX = (width - ribbonWidth) / 2; // Center the ribbon horizontally
-            const ribbonY = 0; // Position it at the top
+            const ribbonWidth = ribbonImage.width * 0.2;
+            const ribbonHeight = ribbonImage.height * 0.2;
+            const ribbonX = (width - ribbonWidth) / 2;
+            const ribbonY = 0;
 
-            // Apply shake effect by rotating the image
             ctx.save();
-            ctx.translate(ribbonX + ribbonWidth / 2, ribbonY + ribbonHeight / 2); // Move the origin to the center of the image
-            ctx.rotate(Math.sin(angle) * maxAngle * Math.PI / 180); // Shake effect using sine function
-            ctx.drawImage(ribbonImage, -ribbonWidth / 2, -ribbonHeight / 2, ribbonWidth, ribbonHeight); // Draw the image with rotation
+            ctx.translate(ribbonX + ribbonWidth / 2, ribbonY + ribbonHeight / 2);
+            ctx.rotate(Math.sin(angle) * maxAngle * Math.PI / 180);
+            ctx.drawImage(ribbonImage, -ribbonWidth / 2, -ribbonHeight / 2, ribbonWidth, ribbonHeight);
             ctx.restore();
-
-            // Increment angle for next frame to create continuous shaking
-            angle += 0.1; // Adjust this value to control the speed of shaking
+            angle += 0.1;
         }
 
-        // Draw snowflakes
         snowflakes.forEach((flake) => {
             if (snowflakeImage.complete) {
                 ctx.save();
@@ -120,12 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
                 ctx.restore();
 
-                // Update snowflake position
                 flake.y += flake.speed;
                 flake.x += Math.sin(flake.angle / 20) * 2;
                 flake.angle += flake.rotationSpeed;
 
-                // Reset snowflake if it moves out of bounds
                 if (flake.y > height) {
                     flake.y = -flake.size;
                     flake.x = Math.random() * width;
@@ -139,9 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(drawSnow);
     }
 
-    // Draw sleigh and reindeer
     const sleighImage = new Image();
-    sleighImage.src = "sleigh.png"; // Replace with the actual path to your sleigh image
+    sleighImage.src = "sleigh.png";
 
     function drawSleighs() {
         if (sleighImage.complete) {
