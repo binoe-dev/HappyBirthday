@@ -25,26 +25,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     giftBox.addEventListener("click", () => {
-        console.log("Gift box clicked, triggering animation...");
+        // Tạm dừng animation bounce
+        giftBox.style.animation = "none";
     
-        // Hiệu ứng phình to (bước 1)
-        giftBox.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-        giftBox.style.transform = "scale(1.5)";
+        // Áp dụng hiệu ứng phình to
+        giftBox.style.transform = "scale(1.1)";
         giftBox.style.opacity = "0.8";
     
         setTimeout(() => {
-            // Hiệu ứng nổ (bước 2)
-            giftBox.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+            // Áp dụng hiệu ứng nổ
             giftBox.style.transform = "scale(3)";
             giftBox.style.opacity = "0";
     
             setTimeout(() => {
-                // Hiển thị thông điệp sau khi nổ
                 message.textContent = "Chúc bạn giáng sinh vui vẻ!";
-                giftBox.classList.add("hidden"); // Ẩn hộp quà
-            }, 500); // Thời gian cho hiệu ứng nổ
-        }, 500); // Thời gian cho hiệu ứng phình to
+                giftBox.classList.add("hidden");
+            }, 1000); // Thời gian nổ
+        }, 1000); // Thời gian phình to
     });
+    
     
 
     // Snow effect background
