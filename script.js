@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Thêm các đối tượng âm thanh
     const clickSound = new Audio("click.mp3");
     const boxSound = new Audio("box.mp3");
-    const backgroundMusic = new Audio("music.mp3");
+    const backgroundMusic = new Audio("hpbdBackground.mp3");
 
     // Đặt chế độ lặp lại cho nhạc nền
     backgroundMusic.loop = true;
@@ -65,13 +65,37 @@ document.addEventListener("DOMContentLoaded", () => {
             giftBox.style.opacity = "0";
 
             setTimeout(() => {
-                message.innerHTML = "Chúc em giáng sinh vui vẻ ^^ <br> Giáng sinh năm nay, hay nhiều năm nữa thì anh vẫn muốn chúng ta có nhau :3 <br> Anh yêu em nhiều lắm ❤❤";
+                const greetingVideo = document.getElementById("greetingVideo");
+                greetingVideo.classList.remove("hidden");
+                greetingVideo.classList.add("visible");
+                greetingVideo.style.marginTop = "20px";
+                greetingVideo.play(); 
+
                 giftBox.classList.add("hidden");
-                gifContainer.classList.remove("hidden");
-                gifContainer.classList.add("visible");
-                gifContainer.style.marginTop = "20px";
-                // Phát nhạc nền sau khi hộp quà được mở
-                backgroundMusic.play();
+    
+                // Lắng nghe sự kiện video kết thúc
+                greetingVideo.addEventListener('ended', () => {
+
+                    // Phát nhạc nền sau khi hết video
+                    backgroundMusic.play();
+
+                    //Ẩn video sau khi phát xong 
+                    greetingVideo.classList.add("hidden");
+                    message.innerHTML = 'Chúc em sinh nhật vui vẻ ';
+
+                    gifContainer.classList.remove("hidden");
+                    gifContainer.classList.add("visible");
+                    gifContainer.style.marginTop = "20px";
+                });
+                
+
+                // message.innerHTML = '';
+                // //message.innerHTML = "Chúc em sinh nhật vui vẻ ^^ <br> Giáng sinh năm nay, hay nhiều năm nữa thì anh vẫn muốn chúng ta có nhau :3 <br> Anh yêu em nhiều lắm ❤❤";
+                // giftBox.classList.add("hidden");
+                // gifContainer.classList.remove("hidden");
+                // gifContainer.classList.add("visible");
+                // gifContainer.style.marginTop = "20px";
+
             }, 1000); // Thời gian nổ
         }, 1000); // Thời gian phình to
     });
@@ -83,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
     gifContainer.id = "gifContainer";
     gifContainer.style.textAlign = "center";
     gifContainer.innerHTML = `
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmNmM2p0dDF4Z2RxMXRiczNqajJkMjdvYXB5dzN6dGVzZzk5ZmFhcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qoZXOC3fcZsSLze5Ch/giphy.webp" alt="GIF 1" style="width: 150px; margin: 5px;">
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWNjc2FheHRiMnN5bWxwY2plbzNoemF2NXEwczVqajM5ZTdnb3hlMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wwe1fooAYWlEOOziPC/giphy.webp" alt="GIF 2" style="width: 150px; margin: 5px;">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzNrZDIxMjhqZmlhcGFqMXkweTliN3Z3aTlka3IzbndjbTJtNDd0aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FxV8D3n3Ca7jjLwdQB/giphy.webp" alt="GIF 3" style="width: 150px; margin: 5px;">
+        <img src="https://media.giphy.com/media/rkoli75BEjGXr7ck4o/giphy.gif?cid=790b761195238v072ko5ztxliea52tk5vpt2l5rglueutghc&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="GIF 1" style="width: 150px; margin: 5px;">
+        <img src="https://media.giphy.com/media/GvjRy6pUMUjQxiKNlh/giphy.gif?cid=790b761195238v072ko5ztxliea52tk5vpt2l5rglueutghc&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="GIF 2" style="width: 150px; margin: 5px;">
+        <img src="https://media.giphy.com/media/ytBuODur5PaUlOHyQ7/giphy.gif?cid=790b761195238v072ko5ztxliea52tk5vpt2l5rglueutghc&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="GIF 3" style="width: 150px; margin: 5px;">
     `;
     document.body.appendChild(gifContainer);
 }
@@ -102,13 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = width;
     canvas.height = height;
 
-    const snowflakeImage = new Image();
-    snowflakeImage.src = "snowflake.png"; // Replace with the actual path to your snowflake image
+    const cakeImage = new Image();
+    cakeImage.src = "cake2.png"; // Replace with the actual path to your snowflake image
 
-    const snowflakes = Array.from({ length: 100 }).map(() => ({
+    const cakes = Array.from({ length: 100 }).map(() => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 30 + 10,
+        size: Math.random() * 50 + 10,
         speed: Math.random() * 3 + 1,
         opacity: Math.random() * 0.8 + 0.2,
         angle: Math.random() * 360,
@@ -122,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     const ribbonImage = new Image();
-    ribbonImage.src = "bell.png";
+    ribbonImage.src = "cake.png";
 
     let angle = 0;
     const maxAngle = 10;
@@ -131,8 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.clearRect(0, 0, width, height);
 
         if (ribbonImage.complete) {
-            const ribbonWidth = ribbonImage.width * 0.2;
-            const ribbonHeight = ribbonImage.height * 0.2;
+            const ribbonWidth = ribbonImage.width * 0.05;
+            const ribbonHeight = ribbonImage.height * 0.05;
             const ribbonX = (width - ribbonWidth) / 2;
             const ribbonY = 0;
 
@@ -144,35 +168,35 @@ document.addEventListener("DOMContentLoaded", () => {
             angle += 0.1;
         }
 
-        snowflakes.forEach((flake) => {
-            if (snowflakeImage.complete) {
+        cakes.forEach((cake) => {
+            if (cakeImage.complete) {
                 ctx.save();
-                ctx.globalAlpha = flake.opacity;
-                ctx.translate(flake.x, flake.y);
-                ctx.rotate((flake.angle * Math.PI) / 180);
+                ctx.globalAlpha = cake.opacity;
+                ctx.translate(cake.x, cake.y);
+                ctx.rotate((cake.angle * Math.PI) / 180);
                 ctx.drawImage(
-                    snowflakeImage,
-                    -flake.size / 2,
-                    -flake.size / 2,
-                    flake.size,
-                    flake.size
+                    cakeImage,
+                    -cake.size / 2,
+                    -cake.size / 2,
+                    cake.size,
+                    cake.size
                 );
                 ctx.restore();
 
-                flake.y += flake.speed;
-                flake.x += Math.sin(flake.angle / 20) * 2;
-                flake.angle += flake.rotationSpeed;
+                cake.y += cake.speed;
+                cake.x += Math.sin(cake.angle / 20) * 2;
+                cake.angle += cake.rotationSpeed;
 
-                if (flake.y > height) {
-                    flake.y = -flake.size;
-                    flake.x = Math.random() * width;
+                if (cake.y > height) {
+                    cake.y = -cake.size;
+                    cake.x = Math.random() * width;
                 }
-                if (flake.x > width || flake.x < 0) {
-                    flake.x = Math.random() * width;
+                if (cake.x > width || cake.x < 0) {
+                    cake.x = Math.random() * width;
                 }
             }
         });
-        drawSleighs();
+        //drawSleighs();
         requestAnimationFrame(drawSnow);
     }
 

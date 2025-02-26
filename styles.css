@@ -1,7 +1,9 @@
 body {
     margin: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, #002f4b, #dc4225);
+    background-image: url('backBirthday04.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -104,25 +106,27 @@ button:hover {
     font-size: 64px; /* Kích thước chữ lớn hơn */
     font-family: 'Dancing Script', cursive; /* Font chữ mềm mại, lãng mạn */
     text-align: center; /* Canh giữa */
-    color: #ffffff; /* Màu chữ trắng */
-    text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; /* Hiệu ứng viền sáng màu Noel */
-    background: linear-gradient(to right, #ff0000, #ffffff, #00ff00); /* Hiệu ứng gradient Noel */
-    -webkit-background-clip: text; /* Chỉ áp dụng gradient vào phần chữ */
-    -webkit-text-fill-color: transparent; /* Ẩn màu nền của chữ */
-    animation: sparkle 2s infinite alternate; /* Hiệu ứng lấp lánh */
+    color: #82BBC6;
+
+    text-shadow: 2px 2px 5px #2b7f90, -2px -2px 5px #D0909F; 
+    /* background: linear-gradient(to right, #2b7f90, #ffffff, #D0909F);   */
+    /* -webkit-background-clip: text; Chỉ áp dụng gradient vào phần chữ */
+    /*-webkit-text-fill-color: transparent;  Ẩn màu nền của chữ */
+    /*animation: sparkle 1s infinite alternate;  Hiệu ứng lấp lánh */
 }
 
 @keyframes sparkle {
-    0% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; }
-    50% { text-shadow: 4px 4px 10px #ff4500, -4px -4px 10px #00ff80; }
-    100% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #00ff00; }
+    
+    100% { text-shadow: 2px 2px 5px #82BBC6, -2px -2px 5px #D0909F; }
 }
 
 button {
     font-size: 24px; /* Kích thước chữ lớn hơn */
-    font-family: 'Poppins', sans-serif; /* Font chữ hiện đại, dễ đọc */
+    font-family: 'Pacifico', cursive;
     color: #ffffff; /* Màu chữ trắng */
-    background: linear-gradient(45deg, #ff0000, #00ff00); /* Hiệu ứng nền gradient Noel */
+    background-image: url('backBirthday04.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
     border: none; /* Loại bỏ viền */
     padding: 15px 30px; /* Tăng khoảng cách chữ */
     border-radius: 12px; /* Bo góc nút */
@@ -132,7 +136,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(45deg, #00ff00, #ff0000); /* Đổi hướng gradient khi hover */
+    background: linear-gradient(45deg, #bf5476, #b94040); /* Đổi hướng gradient khi hover */
     transform: scale(1.1); /* Phóng to nút nhẹ khi hover */
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Tăng bóng khi hover */
 }
