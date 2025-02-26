@@ -18,27 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
         clickSound.play(); // Phát âm thanh khi bấm nút
 
         if (clickCount === 1) {
-            message.textContent = "Người yêu ơiiiiiiiiiiiiiiiiiiiiiiii";
+            message.textContent = "Người yêu ơi người yêu ơi người iuuuuu ❤️";
             message.classList.remove("hidden");
             message.classList.add("visible");
         }
         if (clickCount === 2) {
-            message.textContent = "Bé Cua xinh đẹp dễ thương cute phô mai que số một vũ trụ của anh ơiiiiiiiiiiiiiiiiiiiii";
+            message.textContent = "Bé Cua xinh đẹp dễ thương cute phô mai que số một vũ trụ cụa anh ";
             message.classList.remove("hidden");
             message.classList.add("visible");
         }
         if (clickCount === 3) {
-            message.textContent = "Chuyện là .........";
+            message.textContent = "Ngày này của 25 năm trước là ngày một thiên thần nhỏ ra đời đó chính là em đóoooooooooo";
             message.classList.remove("hidden");
             message.classList.add("visible");
         }
         if (clickCount === 4) {
-            message.textContent = "Anh có món quà này muốn gửi cho emmmmmmmmmm";
+            message.textContent = "Nhân ngày đặc biệt thế này... Anh.............";
             message.classList.remove("hidden");
             message.classList.add("visible");
         }
          else if (clickCount === 5) {
-            message.textContent = "Em mở nó ra nhaaaaaa ...";
+            message.textContent = "Anh muốn nói là ...";
             message.classList.remove("hidden");
             message.classList.add("visible");
 
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     //Ẩn video sau khi phát xong 
                     greetingVideo.classList.add("hidden");
-                    message.innerHTML = 'Chúc em sinh nhật vui vẻ ';
+                    message.innerHTML = "Chúc em sinh nhật vui vẻ 🎂 <br> Ngày càng xinh đẹp, giỏi giang, công việc và cuộc sống siu thành công tốt đẹp nhooooo 😘 <br> Anh luôn bên em và yêu em nhiều hơn nũaaaaaaaa ❤❤";
 
                     gifContainer.classList.remove("hidden");
                     gifContainer.classList.add("visible");

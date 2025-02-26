@@ -106,7 +106,8 @@ button:hover {
     font-size: 64px; /* Kích thước chữ lớn hơn */
     font-family: 'Dancing Script', cursive; /* Font chữ mềm mại, lãng mạn */
     text-align: center; /* Canh giữa */
-    color: #82BBC6;
+    color: #ce6981;
+
 
     text-shadow: 2px 2px 5px #2b7f90, -2px -2px 5px #D0909F; 
     /* background: linear-gradient(to right, #2b7f90, #ffffff, #D0909F);   */
@@ -124,7 +125,7 @@ button {
     font-size: 24px; /* Kích thước chữ lớn hơn */
     font-family: 'Pacifico', cursive;
     color: #ffffff; /* Màu chữ trắng */
-    background-image: url('backBirthday04.webp');
+    background-image: url('cakeButton.webp');
     background-size: cover;
     background-repeat: no-repeat;
     border: none; /* Loại bỏ viền */
